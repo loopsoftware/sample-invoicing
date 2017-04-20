@@ -1,0 +1,56 @@
+{
+	"type": "menu",
+	"profiles": "*",
+	"device": "all",
+	"name": "invoicing",
+	"userName": "Invoicing",
+	"iconCls": "loop-Ligne",
+	"id": "{7538308b-2e46-4c96-8e42-f1b43fc595f0}",
+	"items": [
+		{
+			"type": "item",
+			"name": "invoice",
+			"userName": "Invoice List",
+			"id": "{3d560f03-305c-43af-8c46-f92cff77fe22}",
+			"views": {
+				"all": {
+					"UIClass": "yPreviewList",
+					"config": {
+						"yClassName": "invoicing.invoice"
+					}
+				}
+			}
+		},
+		{
+			"type": "separator"
+		},
+		{
+			"type": "item",
+			"name": "product",
+			"userName": "Product List",
+			"id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
+			"views": {
+				"all": {
+					"UIClass": "yPreviewList",
+					"config": {
+						"yClassName": "invoicing.product"
+					}
+				}
+			}
+		},
+		{
+			"type": "item",
+			"name": "productPrice",
+			"userName": "Products By Price",
+			"id": "{16792738-b191-41d0-80da-49b3418200e7}",
+			"views": {
+				"all": {
+					"UIClass": "invoicing.productsByPrice",
+					"config": {
+						"yClassName": "invoicing.product"
+					}
+				}
+			}
+		}
+	]
+}

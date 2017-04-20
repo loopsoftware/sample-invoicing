@@ -1,0 +1,7 @@
+<yo:object xmlns:yo="http://framework.yuapan.com/ood" module="invoicing" lang="en" >
+	<class name="product" userName="Product" id="51ac2914-0da5-4b76-abe7-cdf9a2841add" shortDescription="reference" longDescription="reference name">
+		<slot name="reference" type="YTstring" userName="Reference" mandatory="true"/>
+        <slot name="name" type="YTstring" userName="Name" mandatory="true"/>
+        <slot name="price" type="YTmoney" userName="Price" mandatory="true"/>
+	</class>
+</yo:object>

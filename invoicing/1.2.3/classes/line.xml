@@ -1,0 +1,10 @@
+<yo:object 
+        xmlns:yo="http://framework.yuapan.com/ood" module="invoicing" lang="en">
+        <class name="line" userName="Line" id="89cd9e67-1947-44d0-b656-b6d12628edec" shortDescription="description" longDescription="description product" scope="private">
+                <slot name="description" type="YTstring" userName="Description" maxLength="30" mandatory="true"/>
+                <slot name="product" type="YTref" class="invoicing.product" userName="Product" mandatory="true"/>
+                <slot name="amount" type="YTinteger" userName="Amount" default="1" mandatory="true"/>
+                <slot name="vat" type="YTmoney" userName="VAT Amount" />
+                <!-- <slot name="total" type="YTmoney" userName="Total" computed="true" getter="cGetTotal"/> -->
+        </class>
+</yo:object>

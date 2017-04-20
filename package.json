@@ -1,0 +1,87 @@
+{
+	"name":"sample-invoicing",
+	"id":"222f55f7-72ef-4fad-81a7-d2a0a869d324",
+	"version":"1.2.3",
+	"modules":[
+		{"name":"invoicing","id":"c0a15815-9eb6-4376-a4c7-4cf60f7a8536","version":"1.2.3"},
+		{ "name": "setting", "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}", "path": "../Yupana-Framework/packages/core", "version": "0.20.4" }
+	],
+	"namespaces":{
+		"nsC":[{"name":"invoicing","id":"c0a15815-9eb6-4376-a4c7-4cf60f7a8536"}]
+	},
+	"themes": {
+        "standard": { "name": "standard", "main": "true" },
+        "standardContrast": { "name": "standardContrast", "main": "false" }
+    },
+    "profiles": [
+        {
+            "name": "user",
+            "value": "1.0",
+            "description": "User",
+            "id": "{BC87BA1F-42A7-4320-BB2E-5208828B530B}",
+            "permissions": {
+                "platform": {
+                    "databasePrepare": "true",
+                    "sendEmail": "true",
+                    "userSetLanguage": "own",
+					"userSetTheme": "own"
+                },
+                "offre": { }
+            }
+        },
+        {
+            "name": "administration",
+            "value": "5.0",
+            "description": "administration",
+            "id": "{7165D6F8-4F0A-4431-A58D-DBDB6E8B5BFF}",
+            "permissions": {
+                "platform": {
+                    "loadPackageFromDisk": "true",
+                    "databasePrepare": "true",
+                    "databaseCreate": "true",
+                    "databaseGrant": "true",
+                    "databaseRevoke": "true",
+                    "databaseBind": "true",
+                    "databaseRename": "true",
+                    "databaseCustomize": "true",
+                    "sendEmail": "true",
+                    "userCreate": "true",
+                    "userAddRole": "true",
+                    "userUpdateRole": "true",
+                    "userSetProfile": "true",
+                    "userSetLanguage": "true",
+					"userSetTheme": "true"
+                },
+                "schedule": { "jobSchedule": true },
+                "YJob": {
+                    "jobStart": true,
+                    "jobStop": true,
+                    "jobReschedule": true,
+                    "jobOnjobStatus": true
+                }
+            }
+        }
+    ],
+	"roles":[
+		{
+			"id":"e750d502-a67a-41d8-8948-6ba9728756b2",
+			"name":"user",
+			"userName":"User",
+			"version":"1.2.3",
+			"modules":[
+				{"name":"invoicing","id":"c0a15815-9eb6-4376-a4c7-4cf60f7a8536","mainModule":true},
+				{ "name": "setting", "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}" }
+			]
+	    },
+		{
+			"id":"ab71acbe-2335-48eb-ae26-593dc11e7d65",
+			"name":"supervisor",
+			"userName":"Administrator",
+			"version":"1.2.3",
+			"modules":[
+				{"name":"invoicing","id":"c0a15815-9eb6-4376-a4c7-4cf60f7a8536","mainModule":true},
+				{ "name": "setting", "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}" }
+			]
+	    }
+	]
+}
