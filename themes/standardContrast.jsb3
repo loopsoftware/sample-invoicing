@@ -1,0 +1,9 @@
+{
+    "projectName": "Yupana",
+    "name":"standard",
+    "licenseText": "Copyright 2017 Yupana",
+	"resources": [
+	],
+    "builds": [
+    ]
+}

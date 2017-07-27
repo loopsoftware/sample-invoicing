@@ -1,0 +1,19 @@
+{
+    "projectName": "Yupana",
+    "name":"standard",
+    "licenseText": "Copyright 2017 Yupana",
+	"resources": [
+		{
+			"path":"themes/fonts/",
+			"name":"yupanaDemoFont.css",
+			"type":"css"
+		},
+		{
+			"path":"themes/fonts/yupanaDemoFont/",
+			"name":"yupanaDemoFont.woff",
+			"type":"font"
+		}
+	],
+    "builds": [
+    ]
+}
