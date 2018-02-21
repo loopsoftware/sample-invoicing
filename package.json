@@ -121,40 +121,139 @@
         }
     ],
     "rights": {
-        "roles": {
-            "e750d502-a67a-41d8-8948-6ba9728756b2": {
-                "c0a15815-9eb6-4376-a4c7-4cf60f7a8536": [
+        "roles": [
+            {
+                "id": "e750d502-a67a-41d8-8948-6ba9728756b2",
+                "modules": [
                     {
-                        "id": "{3d560f03-305c-43af-8c46-f92cff77fe22}",
-                        "label": "invoice-list",
-                        "rights": ["write"]
-                    },
+                        "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
+                        "rights": [
+                            {
+                                "id": "{7538308b-2e46-4c96-8e42-f1b43fc595f0}",
+                                "label": "Invoicing",
+                                "rights": [
+                                    "write",
+                                    "print",
+                                    "export"
+                                ],
+                                "subrights": [
+                                    {
+                                        "id": "{3d560f03-305c-43af-8c46-f92cff77fe22}",
+                                        "label": "Invoice List",
+                                        "rights": [
+                                            "write",
+                                            "print",
+                                            "export"
+                                        ]
+                                    },
+                                    {
+                                        "id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
+                                        "label": "Product List",
+                                        "rights": [
+                                            "write",
+                                            "export"
+                                        ]
+                                    },
+                                    {
+                                        "id": "{16792738-b191-41d0-80da-49b3418200e7}",
+                                        "label": "Product By Price",
+                                        "rights": [
+                                            "export"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "ab71acbe-2335-48eb-ae26-593dc11e7d65",
+                "modules": [
                     {
-                        "id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
-                        "label": "product-list",
-                        "rights": ["write"]
-                    },
-                    {
-                        "id": "{16792738-b191-41d0-80da-49b3418200e7}",
-                        "label": "product-by-price",
-                        "rights": ["print"]
+                        "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
+                        "rights": [
+                            {
+                                "id": "{7538308b-2e46-4c96-8e42-f1b43fc595f0}",
+                                "label": "Invoicing",
+                                "rights": [
+                                    "write",
+                                    "print",
+                                    "export"
+                                ],
+                                "subrights": [
+                                    {
+                                        "id": "{3d560f03-305c-43af-8c46-f92cff77fe22}",
+                                        "label": "Invoice List",
+                                        "rights": [
+                                            "write",
+                                            "print",
+                                            "export"
+                                        ]
+                                    },
+                                    {
+                                        "id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
+                                        "label": "Product List",
+                                        "rights": [
+                                            "write",
+                                            "export"
+                                        ]
+                                    },
+                                    {
+                                        "id": "{16792738-b191-41d0-80da-49b3418200e7}",
+                                        "label": "Product By Price",
+                                        "rights": [
+                                            "export"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
-        },
-        "modules": {
-            "c0a15815-9eb6-4376-a4c7-4cf60f7a8536": [
-                {
-                    "id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
-                    "label": "product-list",
-                    "rights": ["write", "print"]
-                },
-                {
-                    "id": "{16792738-b191-41d0-80da-49b3418200e7}",
-                    "label": "product-by-price",
-                    "rights": ["export", "print"]
-                }
-            ]
-        }
+        ],
+        "modules": [
+            {
+                "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
+                "rights": [
+                    {
+                        "id": "{7538308b-2e46-4c96-8e42-f1b43fc595f0}",
+                        "label": "Invoicing",
+                        "rights": [
+                            "write",
+                            "print",
+                            "export"
+                        ],
+                        "subrights": [
+                            {
+                                "id": "{3d560f03-305c-43af-8c46-f92cff77fe22}",
+                                "label": "Invoice List",
+                                "rights": [
+                                    "write",
+                                    "print",
+                                    "export"
+                                ]
+                            },
+                            {
+                                "id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
+                                "label": "Product List",
+                                "rights": [
+                                    "write",
+                                    "export"
+                                ]
+                            },
+                            {
+                                "id": "{16792738-b191-41d0-80da-49b3418200e7}",
+                                "label": "Product By Price",
+                                "rights": [
+                                    "export"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
