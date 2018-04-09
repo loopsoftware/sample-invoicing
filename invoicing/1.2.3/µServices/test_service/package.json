@@ -1,0 +1,28 @@
+{
+  "name": "test_service",
+  "version": "1.2.3",
+  "description": "example microservice",
+  "keywords": "microservice",
+  "main": "service.js",
+  "config": {
+    "ServiceFabric": {
+      "resourceConsumption": "singleton",
+      "state": "stateless",
+      "queue": true,
+      "role": {
+        "name": "user",
+        "version": "*"
+      }
+    }
+  },
+  "homepage": "www.yupana.com",
+  "licence": "commercial",
+  "files": [
+    "user-config.json",
+    "service.js"
+  ],
+  "engines": {
+    "node": ">=8.11.1"
+  },
+  "dependencies": {}
+}
