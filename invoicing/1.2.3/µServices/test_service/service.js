@@ -4,31 +4,25 @@ const {YNotificationData} = require("./framework/server/lib/notifications/YNotif
 const {YEvent} = require("./framework/server/lib/notifications/YEvent.js");
 
 exports.oninitServiceFabric = function(serv) {
-    serv.service.registerTask("test emit event", 30, (server, role, session) => {
+    serv.service.registerTask("test emit event", 60, (server, role, session) => {
         return emitEvent(server, role, session);
-    });
-
-    // return Promise.resolve();
+    }, 120);
 }
 
 function emitEvent(server, role, session) {
-    const subject = "µService Notification";
-    const body = "This is an example notification for an event emitted from a micro-service.";
-    const tag = "µservice";
-    const priority = "medium";
-    const icon = "/notification-icon.png";
-    const iconCls = null;
-    const label = "Ok";
-    const action = "function(args){console.log('>>> ' + args.testArgs)}";
-    const args = {testArgs: "test arguments"};
-    const notificationData = new YNotificationData(subject, body, tag, priority, icon, iconCls, label, action, args);
+    const data = YNotificationData.fromJSON({
+        subject: "µService Notification",
+        body: "This is an example notification for an event emitted from a micro-service.",
+        tag: "µservice",
+        priority: "medium",
+        icon: "/notification-icon.png",
+        iconCls: null,
+        label: "Ok",
+        action: "",
+        args: {}
+    });
 
-    const recipients = {userIds: ["eace59be-792e-4aad-8dfb-43f4e12bafee"]};
-    const timestamp = Date.now();
-    const validation = null;
-    const linkedEvent = null;
-    const session = session;
-    const event = new YEvent(recipients, session, timestamp, notificationData, validation, linkedEvent);
+    const event = new YEvent({userIds: ["eace59be-792e-4aad-8dfb-43f4e12bafee"]}, session, Date.now().toISOString(), data, null, null);
 
     return event.emit()
         .then(result => {
@@ -43,5 +37,3 @@ function emitEvent(server, role, session) {
             throw error;
         });
 }
-
-exports.emitEvent = emitEvent;
