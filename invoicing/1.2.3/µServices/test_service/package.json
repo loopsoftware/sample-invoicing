@@ -2,7 +2,9 @@
   "name": "test_service",
   "version": "1.2.3",
   "description": "example microservice",
-  "keywords": "microservice",
+  "keywords": [
+    "microservice"
+  ],
   "main": "service.js",
   "config": {
     "ServiceFabric": {
@@ -15,7 +17,7 @@
       }
     }
   },
-  "homepage": "www.yupana.com",
+  "homepage": "https://www.yupana.com",
   "licence": "commercial",
   "files": [
     "user-config.json",
