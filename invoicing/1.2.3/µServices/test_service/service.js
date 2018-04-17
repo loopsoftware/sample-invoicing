@@ -22,6 +22,7 @@ function emitEvent(server, role, session) {
 
     const data = YNotificationData.fromJSON({
         subject: "µService Notification",
+        // subject: "µService Room Notification",
         body: "This is an example notification for an event emitted from a micro-service.",
         tag: "µservice",
         priority: "medium",
@@ -34,7 +35,9 @@ function emitEvent(server, role, session) {
 
     console.log(`>>> emitEvent >>> created notification data object... ${data.toJSON()}`);
 
-    const event = new YEvent({userIds: ["eace59be-792e-4aad-8dfb-43f4e12bafee"]}, session, new Date().toISOString(), data, null, null);
+    const recipients = { userIds: ["eace59be-792e-4aad-8dfb-43f4e12bafee"] };
+    // const recipients = { room: {name: "testing", exclusion: [] }};
+    const event = new YEvent(recipients, session, new Date().toISOString(), data, null, null);
 
     console.log(`>>> emitEvent >>> created event object... ${event.toJSON()}`);
 
