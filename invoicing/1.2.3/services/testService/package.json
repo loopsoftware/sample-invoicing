@@ -1,0 +1,26 @@
+{
+  "name": "test_service",
+  "version": "1.2.3",
+  "description": "example microservice",
+  "keywords": [
+    "microservice"
+  ],
+  "main": "index.js",
+  "config": {
+    "services": {
+      "resourceConsumption": "singleton",
+      "state": "stateless",
+      "queue": true,
+      "role": {
+        "name": "user",
+        "version": "*"
+      }
+    }
+  },
+  "homepage": "https://www.yupana.com",
+  "licence": "commercial",
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {}
+}
