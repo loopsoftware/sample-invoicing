@@ -14,34 +14,9 @@
 
 const {YNotificationData} = require("./framework/server/lib/notifications/YNotificationData.js");
 const {YEvent} = require("./framework/server/lib/notifications/YEvent.js");
+const YFetch = require("./framework/server/lib/YFetch.js");
 
 /* eslint-disable no-console */
-
-exports.$oninitService = {
-    name: 'oninitService',
-    description: 'Register emitter event',
-    scope: 'public',
-    restricted: false,
-    args: [],
-    output: {
-        data: "?"
-    },
-    note: "",
-    example: ''
-};
-exports.oninitService = function (serv, role, sessiom) {
-    console.log(">>> oninitServiceFabric >>> about to register task...");
-
-    serv.service.registerTask("TestEmitEvent", 60, (server, role, session) => {
-        console.log(">>> oninitServiceFabric > task callback >>> about to call emit event...");
-
-        return emitEvent(server, role, session);
-    }, 120);
-
-    console.log(">>> oninitServiceFabric >>> done registering task.");
-
-    return Promise.resolve();
-};
 
 function emitEvent(server, role, session) {
     console.log(">>> emitEvent >>> about to emit event...");
@@ -61,7 +36,7 @@ function emitEvent(server, role, session) {
 
     console.log(`>>> emitEvent >>> created notification data object... ${data.toJSON()}`);
 
-    const recipients = { userIds: ["eace59be-792e-4aad-8dfb-43f4e12bafee"] };
+    const recipients = {userIds: ["eace59be-792e-4aad-8dfb-43f4e12bafee"]};
     // const recipients = { room: {name: "testing", exclusion: [] }};
     const event = new YEvent(recipients, session, new Date().toISOString(), data, null, null);
 
@@ -84,3 +59,30 @@ function emitEvent(server, role, session) {
             throw error;
         });
 }
+
+exports.$oninitService = {
+    name: 'oninitService',
+    description: 'Register emitter event',
+    scope: 'public',
+    restricted: false,
+    args: [],
+    output: {
+        data: "?"
+    },
+    note: "",
+    example: ''
+};
+exports.oninitService = function (serv, role, session) {
+    const tes = new role.invoicing.invoice();
+    console.log(">>> oninitService >>> about to register task...");
+
+    serv.service.registerTask("TestEmitEvent", 3600, (server, role, session) => {
+        console.log(">>> oninitService > task callback >>> about to call emit event...");
+
+        return emitEvent(server, role, session);
+    }, 120);
+
+    console.log(">>> oninitService >>> done registering task.");
+
+    return Promise.resolve();
+};

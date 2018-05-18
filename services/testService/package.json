@@ -1,26 +1,35 @@
 {
-  "name": "test_service",
-  "version": "1.2.3",
-  "description": "example microservice",
-  "keywords": [
-    "microservice"
-  ],
-  "main": "index.js",
-  "config": {
-    "services": {
-      "resourceConsumption": "singleton",
-      "state": "stateless",
-      "queue": true,
-      "role": {
+    "name": "test_service",
+    "version": "1.2.3",
+    "description": "example microservice",
+    "licence": "commercial",
+    "private": true,
+    "resourceConsumption": "normal",
+    "priority": "normal",
+    "downScale": true,
+    "role": {
         "name": "user",
         "version": "*"
-      }
-    }
-  },
-  "homepage": "https://www.yupana.com",
-  "licence": "commercial",
-  "files": [
-    "index.js"
-  ],
-  "dependencies": {}
+    },
+    "main": "index.js",
+    "files": [
+        "index.js"
+    ],
+    "dependantPackages": [
+        {
+            "id": "222f55f7-72ef-4fad-81a7-d2a0a869d324",
+            "version": "1.2.3",
+            "role": [
+                {
+                    "id": "e750d502-a67a-41d8-8948-6ba9728756b2",
+                    "version": "1.2.3"
+                },
+                {
+                    "id": "ab71acbe-2335-48eb-ae26-593dc11e7d65",
+                    "version": "*"
+                }
+            ]
+        }
+    ],
+    "dependencies": {}
 }
