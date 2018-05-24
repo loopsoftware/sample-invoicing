@@ -73,11 +73,7 @@ exports.REST = {
                 console.log(">>> emitEvent > emit().then() >>> emitted event...");
                 console.log(`>>> emitEvent > emit().then() resolve >>> result: ${JSON.stringify(result)}`);
                 return {contentType: "application/json", data: {id: event.id}};
-            }, error => {
-                console.log(`>>> emitEvent > emit().then() reject >>> something not good happened: ${error.message}`);
-                return {contentType: "application/json", data: {error}};
-            })
-            .catch(error => {
+            }.catch(error => {
                 console.log(`>>> emitEvent > emit().then() catch >>> something bad happened: ${error.message}`);
                 return {contentType: "application/json", data: {error}};
             });
