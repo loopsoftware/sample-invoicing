@@ -4,33 +4,38 @@
     "description": "example microservice",
     "licence": "commercial",
     "private": true,
-    "resourceConsumption": "normal",
-    "priority": "normal",
-    "downScale": true,
-    "scope": "back",
-    "role": {
-        "name": "user",
-        "version": "*"
+    "yupana": {
+        "main": "index.js",
+        "files": [
+            "index.js"
+        ],
+        "resourceConsumption": "normal",
+        "priority": "normal",
+        "downScale": true,
+        "scope": "back",
+        "role": {
+            "name": "user",
+            "version": "*"
+        },
+        "disableSessionAndRole": false,
+        "dependantFiles": [],
+        "dependantPackages": [
+            {
+                "id": "222f55f7-72ef-4fad-81a7-d2a0a869d324",
+                "name": "sample-invoicing",
+                "role": [
+                    {
+                        "id": "e750d502-a67a-41d8-8948-6ba9728756b2",
+                        "name": "user"
+                    },
+                    {
+                        "id": "ab71acbe-2335-48eb-ae26-593dc11e7d65",
+                        "name": "supervisor"
+                    }
+                ]
+            }
+        ],
+        "dependantServices": []
     },
-    "main": "index.js",
-    "files": [
-        "index.js"
-    ],
-    "dependantPackages": [
-        {
-            "id": "222f55f7-72ef-4fad-81a7-d2a0a869d324",
-            "version": "1.2.3",
-            "role": [
-                {
-                    "id": "e750d502-a67a-41d8-8948-6ba9728756b2",
-                    "version": "1.2.3"
-                },
-                {
-                    "id": "ab71acbe-2335-48eb-ae26-593dc11e7d65",
-                    "version": "*"
-                }
-            ]
-        }
-    ],
     "dependencies": {}
 }

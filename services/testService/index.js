@@ -60,18 +60,6 @@ function emitEvent(server, role, session) {
         });
 }
 
-exports.$oninitService = {
-    name: 'oninitService',
-    description: 'Register emitter event',
-    scope: 'public',
-    restricted: false,
-    args: [],
-    output: {
-        data: "?"
-    },
-    note: "",
-    example: ''
-};
 exports.oninitService = function (serv, role, session) {
     const tes = new role.invoicing.invoice();
     console.log(">>> oninitService >>> about to register task...");
