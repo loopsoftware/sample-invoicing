@@ -14,7 +14,6 @@
 
 const {YNotificationData} = require("./framework/server/lib/notifications/YNotificationData.js");
 const {YEvent} = require("./framework/server/lib/notifications/YEvent.js");
-const YFetch = require("./framework/server/lib/YFetch.js");
 
 /* eslint-disable no-console */
 
