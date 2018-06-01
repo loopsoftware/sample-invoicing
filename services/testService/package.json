@@ -4,8 +4,8 @@
     "description": "example microservice",
     "licence": "commercial",
     "private": true,
+    "main": "index.js",
     "yupana": {
-        "main": "index.js",
         "files": [
             "index.js"
         ],
