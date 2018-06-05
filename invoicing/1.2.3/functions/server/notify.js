@@ -4,7 +4,7 @@ const {YNotificationData} = require("./notifications/YNotificationData.js");
 const {YEvent} = require("./notifications/YEvent.js");
 
 exports.REST = {
-    $total: {
+    $notify: {
         module: "invoicing",
         name: "notify",
         scope: "public",
@@ -27,8 +27,8 @@ exports.REST = {
             {name: "target", type: "string", mandatory: false, description: "desktop | mobile; defaults to desktop"}
         ],
         content: [],
-        output: "total of the invoice",
-        example: "/invoicing/notify/notify?userId={uuid}&message=Testing123&target=desktop  =>  {event id}"
+        output: "event uuid",
+        example: "/invoicing/notify/notify?userId={uuid}&message=Testing123&target=desktop  =>  {id: event id}"
     },
     notify(args, content, serv, role, session) {
         const userId = args.userId;
@@ -73,7 +73,8 @@ exports.REST = {
                 console.log(">>> emitEvent > emit().then() >>> emitted event...");
                 console.log(`>>> emitEvent > emit().then() resolve >>> result: ${JSON.stringify(result)}`);
                 return {contentType: "application/json", data: {id: event.id}};
-            }.catch(error => {
+            })
+            .catch(error => {
                 console.log(`>>> emitEvent > emit().then() catch >>> something bad happened: ${error.message}`);
                 return {contentType: "application/json", data: {error}};
             });
