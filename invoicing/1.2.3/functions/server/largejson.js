@@ -5,7 +5,7 @@ const path = require("path");
 
 const TEST_JSON_FILE = "/app/yupana/bucket/test.json";
 
-// call using URL: https://devloop.loopsoftware.fr/YPND/user/*/invoicing/test/test
+// call using URL: https://devloop.loopsoftware.fr/YPND/user/*/invoicing/largejson/largejson
 exports.REST = {
     largejson: (_args, _content, _serv, _role, _session) => {
         try {
