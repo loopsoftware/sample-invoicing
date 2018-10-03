@@ -1,7 +1,7 @@
 "use strict";
 
-const {YNotificationData} = require("./notifications/YNotificationData.js");
-const {YEvent} = require("./notifications/YEvent.js");
+const {YNotificationData} = require("/app/yupana/framework/server/lib/notifications/YNotificationData.js");
+const {YEvent} = require("/app/yupana/framework/server/lib/notifications/YEvent.js");
 
 exports.REST = {
     $notify: {
@@ -62,7 +62,7 @@ exports.REST = {
         console.log(`>>> emitEvent >>> created notification data object... ${data.toJSON()}`);
 
         const recipients = userId ? {userIds: [userId]} : {room: {name: roomName}};
-        const event = new YEvent(recipients, session, new Date().toISOString(), data, null, null);
+        const event = new YEvent(recipients, session, new Date().toISOString(), data, null, null, target);
 
         console.log(`>>> emitEvent >>> created event object... ${event.toJSON()}`);
 
