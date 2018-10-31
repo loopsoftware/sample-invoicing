@@ -1,0 +1,7 @@
+<yo:object xmlns:yo="http://framework.yuapan.com/ood" module="comptabilite" lang="fr">
+	<class name="bankStatementRegle" id="9742b319-67e1-4f13-a7e3-e9fe747f75e4" userName="Régles de relevés bancaires" shortDescription="propriete" longDescription="propriete" scope="private">
+		<slot name="propriete" type="YTenum" userName="Propriété" default="0" values=":0,Référence:1,Libellé:2,Numéro d'écriture:3,Informations complémentaires:4,Montant:5,Sens:6"/>
+		<slot name="critere" type="YTenum" userName="Critère" default="0" values=":0,contient:1,est égal à:2,commence par:3,finit par:4,expression régulière (avancé):5"/>
+		<slot name="valeur" type="YTstring" userName="Valeur"/>
+	</class>
+</yo:object>
