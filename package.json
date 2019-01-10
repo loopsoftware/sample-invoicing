@@ -11,7 +11,7 @@
         {
             "name": "setting",
             "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}",
-            "path": "../Yupana-Framework/packages/core",
+            "path": "./packages/core",
             "version": "0.20.4"
         }
     ],
