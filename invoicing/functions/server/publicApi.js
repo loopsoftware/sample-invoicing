@@ -1,5 +1,3 @@
-/* This code is under Copyright (C) 2019 of Cegid SAS all rights reserved */
-
 "use strict";
 
 exports.REST = {
