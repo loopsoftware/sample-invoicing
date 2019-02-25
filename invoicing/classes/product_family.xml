@@ -1,0 +1,19 @@
+<yo:object xmlns:yo="http://framework.yuapan.com/ood" module="productenquiry" lang="en" >
+	<class name="productFamily" userName="Product Family" id="7f237ec8-27a3-4fc1-897f-508b1e98921c" shortDescription="prodfam" longDescription="product family">
+        <slot name="type" type="YTenum" userName="Type" values="{New:1,Existing:2}" default="1" hidden="false"/>
+		<slot name="category" type="YTenum" userName="Category" values="{NewEnquiry:1,RetrieveQuotation:2}" default="2" hidden="false"/>
+        <slot name="ClientNameFamily" type="YTstring" userName="Surname" getter="getClientNameFamily" computed="true" />
+        <slot name="ClientNameFirst" type="YTstring" userName="First Name" getter="getClientNameFirst" computed="true" />
+        <slot name="ClientCode" type="YTstring" userName="Client Code" getter="getClientCode" computed="true" />
+        <slot name="telephoneClient" type="YTstring" userName="Telephone Mumber" getter="getTelephoneClient" computed="true" />
+        <slot name="emailClient" type="YTstring" userName="Email Address" getter="getEmailClient" computed="true" />
+        <slot name="P1SA" type="YTenum" userName="Savings Accounts" default="1" values="SA1:1, SA2:2, SA3:3}" computed="true" getter="getImport" setter="setImport" />
+ 		<slot name="P2ISA" type="YTenum" userName="ISA Accounts" default="1" values="ISA1:1, ISA2:2, ISA3:3}" computed="true" getter="getImport" setter="setImport" />
+ 		<slot name="MTGES" type="YTenum" userName="Mortgages" default="1" values="MT1:1, MT2:2, MT3:3}" computed="true" getter="getImport" setter="setImport" />
+ 		<slot name="thirdParty" type="YTref" class="productenquiry.thirdParty" userName="Third Party"/>
+        <slot name="description" type="YTstring" userName="Description" />
+        <slot name="date" type="YTdate" userName="Date" />
+        <slot name="lines" type="YTarray" class="productenquiry.thirdParty" userName="Lines"/>
+		<slot name="total" type="YTmoney" userName="Total" />
+	</class>
+</yo:object>
