@@ -1,0 +1,150 @@
+{
+    "usage":"dev",
+    "caches": {
+        "cache": {
+            "type": "mongo",
+            "name": "YPN_cache",
+            "ip": "mongo",
+            "port": 27017,
+            "login": "user",
+            "password": "admin",
+            "poolSize": 5,
+            "noreplicaSet": {
+                "name": "",
+                "connectArbiter": "false",
+                "readPreference": "PRIMARY",
+                "ips": [],
+                "ports": []
+            },
+            "replicaSet": ""
+        }
+    },
+    "logs": {
+        "type": "mongo",
+        "name": "YPN_logs",
+        "ip": "mongo",
+        "port": 27017,
+        "login": "user",
+        "password": "admin",
+        "poolSize": 1,
+        "noreplicaSet": {
+            "name": "",
+            "connectArbiter": "false",
+            "readPreference": "PRIMARY",
+            "ips": [],
+            "ports": []
+        },
+        "replicaSet": ""
+    },
+    "bigdata":{"type":"mongo", "name":"YPN_bigdata", "ip":"mongo","port":27017, "login":"user", "password":"admin", "noreplicaSet":{"name":"","connectArbiter":"false","readPreference":"PRIMARY", "ips":[],"ports":[]}, "replicaSet": ""},
+    "HTTP":{"port":80},
+    "HTTPS": {
+        "port": 443,
+        "secureContexts": [
+            {
+                "domain": "devloop.loopsoftware.fr",
+                "cert": "/app/yupana/config/cert/loop.crt",
+                "key": "/app/yupana/config/cert/loop.key"
+            }
+        ]
+    },
+    "session":{"duration":36000, "multi":true},
+    "sharepoint": {
+        "site":{"protocol":"https", "domain":"kpmgts.sharepoint.com"}
+    },
+    "sso":[
+        {
+            "name": "LoopHub",
+            "id": "8e428fb0-eeee-4821-87e3-007fa0200992",
+            "description": "For micro service and GI for DEVLOOP",
+            "type": "OpenIDConnect",
+            "default": false,
+            "disabled": false,
+            "noninteractive": true,
+            "settings": {
+                "host": "LoopHub",
+                "clientID": "6e0ae024-a35d-44f9-9874-d23dc12f19fe",
+                "publicKeyHash": "SwtDOnpHV5dojGFcDw0Q1JTeq/w=",
+                "privateKey": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC33cqTIFWwBu8I\nU7eZzSNIYu+IoJK7j0gpWa3hvDoLfJzSSuUtbAAvVeHBDdRL+wfW8qlWNwBPV04Z\nnrj70T3Je6jgO+ZCGgDy55xrQuTs4fwnZ5uxQ3sUbw0Kl55AEiqCk9WouFeIqqkp\nfTo9d3ojepcFMQ/ywWGYNxDYlpIO4D4zWKOvydwaGQNJJfeAY0x8KrryYufboqRd\nt7/aUnWL+LxS9SY2691REdUUj22CjiDuwvOk8qVasiiDdd4nrCVk3kqbIUcqnQWl\nKi1xgiqyV4zNdfK37fzKO6Sex2X75FM18ORclAoLqBq7TD4q5kCsdjTrfns6HUNr\nT2s3/vB5AgMBAAECggEAWl81NmNqOn7t9hXP5FSjxux595mVBYNDYK+ne5Bcp1C0\nc9hEFLNE0/9OWulFM6NLEydqe+nEyTqMNKODIKKTz/hr5OsMHelSFhIpG79hbd0V\nZvjR2arlUAHVUyN6sNs88blgBvG0dIQNaUsX2SZkbhPPLsoSoKrUIVDPguVfHNfd\n2IsVcy8yCuzpSFUlAf4Exq34tklOuxkl4IkABX4pSBD5p+PyE3UgzViUCoBnkmot\ncEdYV3tG0TFo5N4sR+xngitv98DQtkbe3mUcCDeUnWjuGX0/+sYDfjYrShXs9okB\nWFc8TmKmp9HAMKR8dnQYbo6F78XYjUic7ZrZO0QK0QKBgQDgAP98uf7cTeWoyptU\nhTdIP4eeYs8qp1hGICeUK4/cwYU37SXpn1ql9lNfGnAu6QfxLVKgGMk7JGNRRfRD\np3L11Hf6sCxj+JvQ3bsZlHUm/b9IWOVmdVkESP8PjmwXgque20jqTOdnb8YsyEJq\nI8ugGmQarGYp4yAFbO+fVivlOwKBgQDSIRxrKYJZxs4B2weGynJQDIy8lixaFOpT\nGc8b9XllRjihKQP1rLapfZL+ZISCUgw2OJxpzzVpu0f9TkxpJaZjCtxcat7y+FeR\noDS5ig1DHg9Kcb2U8DtGWvLyNG2Pq38mmDIg3PqCzMV6WBds4SzBjAHarmQySdnX\nzg5ceawV2wKBgHpDsS+n6ZbfobnGlI/Ggo0Zt/FYZ1EVtBXamR/DwyswKYGEHExu\n4TByycDAEnlYUjBul4mw3a09SERlFVUUAahyRuZ64E/Us1+Glwf4QxV8LLrVYqjQ\n5jxzh1w7VX5joT7828ifHzMTDC0HRVDfptYFcZwpez3jrWeotQXYJ+9fAoGBAM9d\nk7EBZrz4H2bfYv8XHFZ4/A5D2QMQ7uoRZzz9M87IzKvmUR0KU7zRytU4FziQhbKg\njWMx9FEiW/nTYj7Fw/yrxCmD4f8/KxPwWPfdEBdzO73In0GzDZvxtx1ktdZ5dOJ+\ngcHCsYmRUTTaaEuvr75VT6MiRIkILm300GFcRYHPAoGAJymqak6V5s6lVjykSHtL\nc9V55M+fPclMp5khXtq9F1/JKncVPMavwqEFMGlgudWcf9N9jJGuDBntaTi5ssSH\ngLagEX13hvM0at+zOF7gnL9gmYduXM9jFz0zWaf0aKehqu08wq3TYVMpF4bGzfPb\nG4rzoi496eB+PZAkBRGV13Y=\n-----END PRIVATE KEY-----",
+                "callbackURL": "https://devloop.loopsoftware.fr/authorize",
+                "metadataURL": "https://login.microsoftonline.com/common/.well-known/openid-configuration"
+            }
+        },
+        {
+            "name": "devloop OpenID",
+            "id": "8566eb55-5274-43d5-98c9-22e96ca46ea1",
+            "description": "https://devloop.onmicrosoft.com/88ab217b-7f5d-4333-a3cf-47cdbd215589",
+            "type": "OpenIDConnect",
+            "default": true,
+            "disabled": false,
+            "settings": {
+                "clientID": "074f9f8b-bc05-45db-bba8-3c9ef72e8d7b",
+                "clientSecret": "axLTmE40czSmL5aag3ORfNCJVY2YDYvc5iNqQlFgBn8=",
+                "callbackURL": "https://devloop.loopsoftware.fr/authorize/",
+                "metadataURL": "https://login.microsoftonline.com/devloop.onmicrosoft.com/.well-known/openid-configuration"
+            }
+        },
+        {
+            "name":"ADFS",
+            "id":"ae23abba-d0e9-42f0-b18c-af62d92b01e9",
+            "description":"Local ADFS",
+            "type":"WSFederation",
+            "default":false,
+            "disabled":false,
+            "settings":{
+                "IPSTS":"https://devloop.loopsoftware.fr/IPSTS/ls",
+                "wtrealm":"https://devloop.loopsoftware.fr/RP",
+                "duration":18000,
+                "CERT":"cert/loop.pem",
+                "userDefaultPwd":"admin"
+            }
+        }
+    ],
+    "WSFederationServer":{"duration":120000,
+        "issuer":"https://sts.windows.net/7173f42d-b528-4299-b6a5-55d8be35801b/",
+        "wtrealm":"https://devloop.loopsoftware.fr/RP"
+    },
+    "DBConfig": {
+        "instances":[{
+            "id":"498a29a9-49ce-4c52-baa6-eb870e83edaa",
+            "DSN":"",
+            "driver":"ODBC Driver 13 for SQL Server",
+            "host":"mssql",
+            "port":1433,
+            "login":"sa",
+            "password":"Pa55word1"
+        }],
+        "farm":{"dossier":{"DBunique":true}},
+        "createDatabase":"enable",
+        "verbose":"v",
+        "wait4DBOperation":5000,
+        "namespaces":[{"name":"nsC","publicUser":"travis@devloop.onmicrosoft.com"}]
+    },
+    "multipageapp":[{"domain":"arpegewm.kpmgnet.fr","port":"80","path":"../AWS-Website/www.kpmgts.com/","home":"index.html", "wtrealm":"urn:arpegewm.kpmgnet.fr:trust", "pages":{"CODE":"path"},"cache":"7"}],
+    "smtp":{"user":"smtprelay@kpmgts.com","password":"jvaase06", "host":"smtp.gmail.com", "ssl":true, "port":465},
+    "CRON":{"interval":36000000},
+    "redirections":[],
+    "performanceMonitoring":{"threshold":600,"bufSize":25},
+    "AzureFileStorage":{
+        "account":"devawspdf",
+        "key":"sVv80Y3g3ZZaZVAQDPbLKV+mpAbOYsc+731X5Xe94nAj3M5VZ6KetL4n8HdXIXwGSROpuzq5U/gVMdgQoYfIvw==",
+        "domain":"file.core.windows.net"
+    },
+    "microService":{"login":"travis@devloop.onmicrosoft.com","password":"loop123!","issuedBy":"https://sts.windows.net/c90eb054-e079-437d-9976-58f09521fbc9/"},
+    "instrumentation": {},
+    "security": {
+        "publicKeyPath": "/app/yupana/config/cert/public_key.pem",
+        "privateKeyPath": "/app/yupana/config/cert/private_key.pem"
+    },
+    "spapp": {
+        "errorsURL": "https://devloop.loopsoftware.fr/error/"
+    },
+    "publicApi": {
+        "transactionsTTL": 3600,
+        "transactionRequestsTTL": 3600,
+        "connectionsInit": {
+            "module": "testModuleApi",
+            "command": "publicApi/initialiseDB"
+        }
+    }
+}
