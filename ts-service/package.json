@@ -1,0 +1,35 @@
+{
+    "name": "ts-service",
+    "version": "1.0.0",
+    "description": "showcase service built with typescript",
+    "main": "index.js",
+    "scripts": {
+        "compile": "tsc && cp package.json dist/package.json",
+        "install-dist": "cd dist && npm install",
+        "start": "npm run compile && npm run install-dist && ./start.sh"
+    },
+    "author": "simonpiscitelli@gmail.com",
+    "private": true,
+    "dependencies": {
+        "@yupana/core-lib-poc": "^0.1.0",
+        "typescript": "^3.3.3333",
+        "tslib": "^1.9.3"
+    },
+    "devDependencies": {
+        "@types/node": "^11.11.3"
+    },
+    "files": [
+        "index.js"
+    ],
+    "config": {
+        "services": {
+            "resourceConsumption": "singleton",
+            "state": "stateless",
+            "queue": true,
+            "role": {
+                "name": "testRole",
+                "version": "*"
+            }
+        }
+    }
+}
