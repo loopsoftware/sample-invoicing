@@ -1,0 +1,124 @@
+version: "3.5"
+
+services:
+    mongo:
+        image: mongo:3.6
+        ports:
+            - "27017:27017"
+        volumes:
+            - ./mongoSetup.js:/mongoSetup.js
+
+    mssql:
+        image: microsoft/mssql-server-linux
+        depends_on:
+            - mongo
+        ports:
+            - "1433:1433"
+        environment:
+            - SA_PASSWORD=Pa55word1
+            - ACCEPT_EULA=Y
+
+    yupana-ydbutils:
+        depends_on:
+            - mssql
+            - mongo
+        image: ydbutils
+        ports:
+            - "9202:9202"
+        environment:
+            - NODE_ENV=dev
+            - YPN_USER_CONFIG=/app/yupana/config/user-config.json
+            - SERVER_FUNCTION=yupana-serverfunction
+            - YDBUTILS=yupana-ydbutils
+            - YDBDATA=yupana-ydbdata
+            - YPN_SERVICE_PORT=9099
+        volumes:
+            - ./test-user-config.json:/app/yupana/config/user-config.json
+            - ./cert:/app/yupana/code/services/yupana-ydbutils/code/cert
+            - ./cert:/app/yupana/config/cert
+        command: node service.js
+        privileged: false
+
+    yupana-ydbdata:
+        depends_on:
+            - mongo
+            - mssql
+        image: ydbdata
+        environment:
+            - NODE_ENV=dev
+            - YPN_USER_CONFIG=/app/yupana/config/user-config.json
+            - SERVER_FUNCTION=yupana-serverfunction
+            - YDBUTILS=yupana-ydbutils
+            - YDBDATA=yupana-ydbdata
+            - YPN_SERVICE_PORT=9099
+        volumes:
+            - ./test-user-config.json:/app/yupana/config/user-config.json
+            - ./cert:/app/yupana/code/services/yupana-ydbdata/code/cert
+            - ./cert:/app/yupana/config/cert
+        command: node service.js
+        privileged: false
+
+    yupana-framework-full:
+        depends_on:
+            - yupana-ydbutils
+            - yupana-ydbdata
+        image: yupana-framework-full-integration-test
+        ports:
+            - "80:80"
+            - "443:443"
+            - "9203:9203"
+        environment:
+            - NODE_ENV=dev
+            - YPN_USER_CONFIG=/app/yupana/config/user-config.json
+            - SERVER_FUNCTION=yupana-serverfunction
+            - YDBUTILS=yupana-ydbutils
+            - YDBDATA=yupana-ydbdata
+            - YPN_SERVICE_PORT=9099
+        hostname: devloop.loopsoftware.fr
+        volumes:
+            - ./test-user-config.json:/app/yupana/config/user-config.json
+            - ./cert:/app/yupana/config/cert
+            - /home/baha/www/fy_framework:/app/framework
+        command: node --inspect=0.0.0.0:9203 service.js
+
+    yupana-serverfunction:
+        depends_on:
+            - yupana-framework-full
+        image: serverfunction
+        environment:
+            - NODE_ENV=dev
+            - YPN_USER_CONFIG=/app/yupana/config/user-config.json
+            - SERVER_FUNCTION=yupana-serverfunction
+            - YDBUTILS=yupana-ydbutils
+            - YDBDATA=yupana-ydbdata
+            - YPN_SERVICE_PORT=9099
+        volumes:
+            - ./test-user-config.json:/app/yupana/config/user-config.json
+            - ./cert:/app/yupana/service/cert
+            - ./cert:/app/yupana/config/cert
+        command: node service.js
+
+    ts-service:
+        image: dist
+        ports:
+            - 9201:9201
+        environment:
+            - NODE_ENV=dev
+            - YPN_USER_CONFIG=/app/yupana/config/user-config.json
+            - SERVER_FUNCTION=yupana-serverfunction
+            - YDBUTILS=yupana-ydbutils
+            - YDBDATA=yupana-ydbdata
+            - YPN_SERVICE_PORT=9099
+        command: node --inspect=0.0.0.0:9201 service.js
+        volumes:
+            # dependencies
+            - ./test-user-config.json:/app/yupana/config/user-config.json
+            - ./cert:/app/yupana/config/cert
+            - ./dist/index.js:/app/yupana/bin/index.js
+            - /home/baha/www/fy_framework:/app/yupana/framework
+        privileged: false
+        depends_on:
+            - yupana-framework-full
+            - yupana-serverfunction
+            - yupana-ydbdata
+            - yupana-ydbutils
