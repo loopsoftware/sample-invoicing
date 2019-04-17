@@ -2,20 +2,21 @@ ypnUi.define('Home', {
     extend: 'yupana.panel.Panel'
 });
 
+
 ypn.onready((_callback) => {
     YContext.on("packageready", function (_err) {
+        console.log("simple package ready");
+        console.log("packageready");
         if (_err) {
             console.error(_err.message);
             return;
         }
-
         YContext.on("connectionsready", () => {
-            //fixme: emit contextready to trigger currency loader
-            //YContext.emit('contextready');
+            YContext.emit('contextready');
         });
 
-        session.dbserver.connect("nsC", "INVOICING").then( () => {
-            session.defaultConnection = 'nsC';
+        session.dbserver.connect("simple", "simple").then( () => {
+            session.defaultConnection = 'simple';
             YContext.emit("connectionsready");
         })
         .catch(err => {

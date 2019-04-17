@@ -1,0 +1,25 @@
+{
+  "type": "menu",
+  "profiles": "*",
+  "device": "all",
+  "name": "simple",
+  "userName": "Simple",
+  "iconCls": "loop-Ligne",
+  "id": "822a1263-adbf-46ae-be67-892a0b3d6f59",
+  "items": [
+    {
+      "type": "item",
+      "name": "model",
+      "userName": "Simple List",
+      "id": "c10691b0-1183-4e65-9ae8-9a1bb4a7f61d",
+      "views": {
+        "all": {
+          "UIClass": "yPreviewList",
+          "config": {
+            "yClassName": "simple.model"
+          }
+        }
+      }
+    }
+  ]
+}
