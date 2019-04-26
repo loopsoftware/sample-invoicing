@@ -4,29 +4,12 @@
     "version": "1.2.3",
     "modules": [
         {
-            "name": "invoicing",
-            "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
-            "version": "1.2.3"
-        },
-        {
-            "name": "setting",
-            "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}",
-            "path": "./packages/core",
-            "version": "0.20.4"
-        },
-        {
             "name": "simple",
             "id": "a6a687ff-f4c1-4da4-8994-15775a69e084",
             "version": "1.0.0"
         }
     ],
     "namespaces": {
-        "nsC": [
-            {
-                "name": "invoicing",
-                "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536"
-            }
-        ],
         "simple": [
             {
                 "name": "simple",
@@ -103,34 +86,8 @@
             "version": "1.2.3",
             "modules": [
                 {
-                    "name": "invoicing",
-                    "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
-                    "mainModule": true
-                },
-                {
-                    "name": "setting",
-                    "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}"
-                },
-                {
                     "name": "simple",
                     "id": "a6a687ff-f4c1-4da4-8994-15775a69e084"
-                }
-            ]
-        },
-        {
-            "id": "ab71acbe-2335-48eb-ae26-593dc11e7d65",
-            "name": "supervisor",
-            "userName": "Administrator",
-            "version": "1.2.3",
-            "modules": [
-                {
-                    "name": "invoicing",
-                    "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
-                    "mainModule": true
-                },
-                {
-                    "name": "setting",
-                    "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}"
                 }
             ]
         }
@@ -143,41 +100,6 @@
                     {
                         "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
                         "rights": [
-                            {
-                                "id": "{7538308b-2e46-4c96-8e42-f1b43fc595f0}",
-                                "label": "Invoicing",
-                                "rights": [
-                                    "write",
-                                    "print",
-                                    "export"
-                                ],
-                                "subrights": [
-                                    {
-                                        "id": "{3d560f03-305c-43af-8c46-f92cff77fe22}",
-                                        "label": "Invoice List",
-                                        "rights": [
-                                            "write",
-                                            "print",
-                                            "export"
-                                        ]
-                                    },
-                                    {
-                                        "id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
-                                        "label": "Product List",
-                                        "rights": [
-                                            "write",
-                                            "export"
-                                        ]
-                                    },
-                                    {
-                                        "id": "{16792738-b191-41d0-80da-49b3418200e7}",
-                                        "label": "Product By Price",
-                                        "rights": [
-                                            "export"
-                                        ]
-                                    }
-                                ]
-                            },
                             {
                                 "id": "822a1263-adbf-46ae-be67-892a0b3d6f59",
                                 "label": "Simple",
@@ -201,92 +123,12 @@
                         ]
                     }
                 ]
-            },
-            {
-                "id": "ab71acbe-2335-48eb-ae26-593dc11e7d65",
-                "modules": [
-                    {
-                        "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
-                        "rights": [
-                            {
-                                "id": "{7538308b-2e46-4c96-8e42-f1b43fc595f0}",
-                                "label": "Invoicing",
-                                "rights": [
-                                    "write",
-                                    "print",
-                                    "export"
-                                ],
-                                "subrights": [
-                                    {
-                                        "id": "{3d560f03-305c-43af-8c46-f92cff77fe22}",
-                                        "label": "Invoice List",
-                                        "rights": [
-                                            "write",
-                                            "print",
-                                            "export"
-                                        ]
-                                    },
-                                    {
-                                        "id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
-                                        "label": "Product List",
-                                        "rights": [
-                                            "write",
-                                            "export"
-                                        ]
-                                    },
-                                    {
-                                        "id": "{16792738-b191-41d0-80da-49b3418200e7}",
-                                        "label": "Product By Price",
-                                        "rights": [
-                                            "export"
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-                ]
             }
         ],
         "modules": [
             {
                 "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536",
                 "rights": [
-                    {
-                        "id": "{7538308b-2e46-4c96-8e42-f1b43fc595f0}",
-                        "label": "Invoicing",
-                        "rights": [
-                            "write",
-                            "print",
-                            "export"
-                        ],
-                        "subrights": [
-                            {
-                                "id": "{3d560f03-305c-43af-8c46-f92cff77fe22}",
-                                "label": "Invoice List",
-                                "rights": [
-                                    "write",
-                                    "print",
-                                    "export"
-                                ]
-                            },
-                            {
-                                "id": "{8d321180-bb25-4031-b9b0-6c7ebcd7f8fa}",
-                                "label": "Product List",
-                                "rights": [
-                                    "write",
-                                    "export"
-                                ]
-                            },
-                            {
-                                "id": "{16792738-b191-41d0-80da-49b3418200e7}",
-                                "label": "Product By Price",
-                                "rights": [
-                                    "export"
-                                ]
-                            }
-                        ]
-                    },
                     {
                         "id": "822a1263-adbf-46ae-be67-892a0b3d6f59",
                         "label": "Simple",
@@ -313,5 +155,8 @@
     },
     "dependencies": {
         "@yupana/framework-types": "^0.1.0"
+    },
+    "devDependencies": {
+        "typescript": "^3.4.5"
     }
 }

@@ -1,5 +1,23 @@
 # sample-invoicing
 
+## compile:
+
+ - compile classes to typescript:
+    ``` 
+    cd ../tools
+    npm run compile-package -- --pkgPath=../sample-invoicing --pkgOutput=./compile --tsGenerate --fwPath=../Yupana-Framework
+    ```
+ - _rename `node_modules/yupana/*.d.ts` to `node_modules/yupana/*.ts` (**)_ 
+ - compile typescript to javascript:
+   ``` 
+     ./node_modules/.bin/tsc -p ./
+   ```
+ - _copy some files from the framework: (**)_
+   ``` 
+   cp ../Yupana-Framework/server/lib/core/uuid.js ./js-compiled/node_modules/yupana/
+   ```
+ > _** - while it's a POC_ 
+   
 ## setup
 
  - create database:

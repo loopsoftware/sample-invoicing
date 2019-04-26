@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "outDir": "js-compiled",
+    "strict": false,
+    "esModuleInterop": true
+  },
+  "include": [
+    "./simple/**/*",
+    "./node_modules/**/*"
+  ]
+}
