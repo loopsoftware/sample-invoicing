@@ -15,7 +15,7 @@ ypn.onready((_callback) => {
         });
 
         session.dbserver.connect("nsC", "INVOICING").then( () => {
-            session.defaultConnection = 'nsC';
+            // session.defaultConnection = 'nsC';
             YContext.emit("connectionsready");
         })
         .catch(err => {

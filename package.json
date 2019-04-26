@@ -310,5 +310,8 @@
                 ]
             }
         ]
+    },
+    "dependencies": {
+        "@yupana/framework-types": "^0.1.0"
     }
 }
