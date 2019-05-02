@@ -1,6 +1,4 @@
-// v2.5 - typescript
-
-import {YModel} from "simple";
+import {YModel} from "sample-invoicing/simple";
 
 export class Model extends YModel {
     cGetContent() {
