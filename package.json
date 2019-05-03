@@ -312,7 +312,7 @@
         ]
     },
     "dependencies": {
-        "@yupana/framework-types": "^0.1.0",
+        "@yupana/framework-types": "^0.1.2",
         "@yupana/class-generator": "0.1.2"
     },
     "devDependencies": {
