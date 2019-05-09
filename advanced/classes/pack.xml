@@ -1,0 +1,8 @@
+<yo:object xmlns:yo="http://framework.yupana.com/ood" module="advanced" lang="en">
+    <class name="pack" userName="Pack" id="a751fb08-e64e-492e-b7f8-b5494620a9eb" shortDescription="title"
+           longDescription="title weight_value weight_unit">
+        <slot name="title" type="YTstring" userName="Title" mandatory="true"/>
+        <slot name="model" type="YTref" class="simple.model" userName="Model"/>
+        <slot name="weight" type="advanced.types.weight" userName="Weight"/>
+    </class>
+</yo:object>

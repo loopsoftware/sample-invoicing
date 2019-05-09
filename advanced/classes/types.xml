@@ -1,0 +1,16 @@
+<yo:object xmlns:yo="http://framework.yupana.com/ood" module="advanced" lang="en">
+	<complexType name="weight">
+		<elt name="value" type="YTfloat">
+			<att name="name" value="value"/>
+			<att name="userName" value="Value"/>
+			<att name="mandatory" value="true"/>
+		</elt>
+		<elt name="unit" type="YTenum">
+			<att name="name" value="unit"/>
+			<att name="userName" value="Unit"/>
+			<att name="values" value="{g:1,kg:2,oz:3,lbs:4,st:5,t:6}"/>
+			<att name="mandatory" value="true"/>
+		</elt>
+	</complexType>
+    <class name="types" userName="Types" id="0e4f8024-f7ef-4d46-9d70-6da0af22a182" />
+</yo:object>

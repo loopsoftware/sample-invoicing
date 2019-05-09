@@ -1,0 +1,5 @@
+<yo:object xmlns:yo="http://framework.yupana.com/ood" module="advanced" lang="en">
+    <class name="packUpsale" userName="PackUpsale" inherit="advanced.pack" id="0ea056f4-e921-449f-bf4a-3c2c36070317">
+        <slot name="similar" type="YTArray" class="advanced.packRef" userName="Similar"/>
+    </class>
+</yo:object>

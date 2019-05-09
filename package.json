@@ -18,6 +18,11 @@
             "name": "simple",
             "id": "a6a687ff-f4c1-4da4-8994-15775a69e084",
             "version": "1.0.0"
+        },
+        {
+            "name": "advanced",
+            "id": "82412623-16a2-4901-949d-e17ff8210c16",
+            "version": "1.0.0"
         }
     ],
     "namespaces": {
@@ -31,6 +36,11 @@
             {
                 "name": "simple",
                 "id": "a6a687ff-f4c1-4da4-8994-15775a69e084"
+            },
+            {
+                "name": "advanced",
+                "id": "82412623-16a2-4901-949d-e17ff8210c16",
+                "version": "1.0.0"
             }
         ]
     },
@@ -114,6 +124,10 @@
                 {
                     "name": "simple",
                     "id": "a6a687ff-f4c1-4da4-8994-15775a69e084"
+                },
+                {
+                    "name": "advanced",
+                    "id": "82412623-16a2-4901-949d-e17ff8210c16"
                 }
             ]
         },

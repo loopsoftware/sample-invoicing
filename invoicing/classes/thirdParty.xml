@@ -1,6 +1,7 @@
-<yo:object xmlns:yo="http://framework.yuapan.com/ood" module="invoicing" lang="en" >
-	<class name="thirdParty" userName="Third Party" id="c5f3240f-159e-4b32-ba25-d5b7b9b2526f" shortDescription="reference" longDescription="reference name">
+<yo:object xmlns:yo="http://framework.yupana.com/ood" module="invoicing" lang="en">
+    <class name="thirdParty" userName="Third Party" id="c5f3240f-159e-4b32-ba25-d5b7b9b2526f"
+           shortDescription="reference" longDescription="reference name">
         <slot name="reference" type="YTstring" userName="Reference" mandatory="true"/>
-		<slot name="name" type="YTstring" userName="Name" mandatory="true"/>
-	</class>
+        <slot name="name" type="YTstring" userName="Name" mandatory="true"/>
+    </class>
 </yo:object>

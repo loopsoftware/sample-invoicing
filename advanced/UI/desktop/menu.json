@@ -1,0 +1,25 @@
+{
+  "type": "menu",
+  "profiles": "*",
+  "device": "all",
+  "name": "advanced",
+  "userName": "Advanced",
+  "iconCls": "loop-Ligne",
+  "id": "57b44f7b-f7a5-4ac9-8dd8-74d053a70837",
+  "items": [
+    {
+      "type": "item",
+      "name": "pack",
+      "userName": "Packs",
+      "id": "253ba76e-dbca-4e64-9750-73ff00e108c0",
+      "views": {
+        "all": {
+          "UIClass": "yPreviewList",
+          "config": {
+            "yClassName": "advanced.packUpsale"
+          }
+        }
+      }
+    }
+  ]
+}
