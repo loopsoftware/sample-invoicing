@@ -7,6 +7,7 @@ import {PackUpsale} from "../../ts-classes/packUpsale";
 import {Model} from "../../../simple/ts-classes/model";
 import {PackRef} from "../../ts-classes/packRef";
 import {PackWeight} from "../../ts-classes/packWeight";
+import {Pack} from "../../ts-classes/pack";
 import {Scales} from "../common/commonfunction";
 
 type ServerFunctionResponse<T> = Promise<{data:T}>
@@ -63,16 +64,24 @@ exports.REST = {
     ): ServerFunctionResponse<{
         success: boolean, mass: number
     }> => {
-        const newPack:PackUpsale = await _role.advanced.createClass("packUpsale");
+        const [newPack, modelRef]:[PackUpsale, Model] = await Promise.all([
+            _role.advanced.createClass("packUpsale"),
+            _role.simple.createClass("Model")
+        ]);
         newPack.title = _content.title;
-        newPack.model = _content.modelRef as YTref<Model>;
+        modelRef.objectId = _content.modelRef;
+        newPack.model = modelRef as YTref<Model>;
         newPack.weight.value = _content.weight;
         newPack.weight.unit = _content.unit;
 
-        newPack.similar = await Promise.all(_content.similar.map(async (pack) => {
-            const newRef:PackRef = await _role.advanced.createClass("packRef");
-            newRef.pack = pack as YTref<PackUpsale>;
-            return newRef;
+        await Promise.all(_content.similar.map(async (packId) => {
+            const [newRef, packRef]:[PackRef, PackUpsale, Model] = await Promise.all([
+                _role.advanced.createClass("packRef"),
+                _role.advanced.createClass("packUpsale")
+            ]);
+            packRef.objectId = packId;
+            newRef.pack = packRef as YTref<Pack>;
+            return newPack.similar.push(newRef);
         }));
 
         newPack.validate(err => {
