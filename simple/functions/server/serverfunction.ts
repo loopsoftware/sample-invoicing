@@ -5,7 +5,6 @@ import {YRole} from "@yupana/framework-types/lib/YRoles";
 import {YSession} from "@yupana/framework-types/lib/YSessions";
 import {YQuery} from "@yupana/framework-types/";
 import {Model} from "../../ts-classes/model";
-import {YTstring} from "@yupana/class-generator";
 
 type ServerFunctionResponse<T> = Promise<{data:T}>
 
@@ -121,8 +120,8 @@ exports.REST = {
         // .setData doesn't work
         // newModel.setData(_content);
         // this does:
-        newModel.title = _content.title as YTstring;
-        newModel.description = _content.description as YTstring;
+        newModel.title = _content.title;
+        newModel.description = _content.description;
         newModel.validate(err => {
             if (err) {
                 throw err;
