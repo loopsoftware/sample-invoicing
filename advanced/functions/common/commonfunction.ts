@@ -1,4 +1,7 @@
-import {PackWeight} from "../../ts-classes/packWeight";
+// There no PackWeight but YPackWeight only since it is a type, not a class
+// import {PackWeight} from "../../ts-classes/packWeight";
+
+import {YPackWeight} from "sample-invoicing/advanced";
 
 export class Scales {
     static toKg: { (value: number): number } [] = [
@@ -25,7 +28,7 @@ export class Scales {
         }
     ];
 
-    static weight(weight: PackWeight): number {
+    static weight(weight: YPackWeight): number {
         if (weight.unit >= this.toKg.length) {
             throw new Error ("Unsupported unit");
         }

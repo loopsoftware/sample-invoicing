@@ -6,7 +6,8 @@ import {YTref} from "@yupana/class-generator";
 import {PackUpsale} from "../../ts-classes/packUpsale";
 import {Model} from "../../../simple/ts-classes/model";
 import {PackRef} from "../../ts-classes/packRef";
-import {PackWeight} from "../../ts-classes/packWeight";
+// import {PackWeight} from "../../ts-classes/packWeight";
+import {YPackWeight} from "sample-invoicing/advanced";
 import {Pack} from "../../ts-classes/pack";
 import {Scales} from "../common/commonfunction";
 
@@ -66,7 +67,7 @@ exports.REST = {
     }> => {
         const [newPack, modelRef]:[PackUpsale, Model] = await Promise.all([
             _role.advanced.createClass("packUpsale"),
-            _role.simple.createClass("Model")
+            _role.simple.createClass("model")
         ]);
         newPack.title = _content.title;
         modelRef.objectId = _content.modelRef;
@@ -74,8 +75,8 @@ exports.REST = {
         newPack.weight.value = _content.weight;
         newPack.weight.unit = _content.unit;
 
-        await Promise.all(_content.similar.map(async (packId) => {
-            const [newRef, packRef]:[PackRef, PackUpsale, Model] = await Promise.all([
+        await Promise.all((_content.similar || []).map(async (packId) => {
+            const [newRef, packRef]:[PackRef, PackUpsale] = await Promise.all([
                 _role.advanced.createClass("packRef"),
                 _role.advanced.createClass("packUpsale")
             ]);
@@ -98,6 +99,6 @@ exports.REST = {
 
         // this compiles but no hinting/autocompletion
         const scales = (await _role.advanced.requireEx('commonfunction.js')).Scales;
-        return {data: {success: true, mass: scales.weight(newPack.weight as PackWeight)}};
+        return {data: {success: true, mass: scales.weight(newPack.weight as YPackWeight)}};
   }
 };
