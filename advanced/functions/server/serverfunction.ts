@@ -72,8 +72,12 @@ exports.REST = {
         newPack.title = _content.title;
         modelRef.objectId = _content.modelRef;
         newPack.model = modelRef as YTref<Model>;
+        // this doesn't mark weight as updated
         newPack.weight.value = _content.weight;
         newPack.weight.unit = _content.unit;
+        // should be replaced in compiled js with
+        // newPack.weight_value = _content.weight;
+        // newPack.weight_unit = _content.unit;
 
         await Promise.all((_content.similar || []).map(async (packId) => {
             const [newRef, packRef]:[PackRef, PackUpsale] = await Promise.all([
