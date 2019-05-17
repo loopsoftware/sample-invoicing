@@ -65,13 +65,13 @@ exports.REST = {
     ): ServerFunctionResponse<{
         success: boolean, mass: number
     }> => {
-        const [newPack, modelRef]:[PackUpsale, Model] = await Promise.all([
+        const [newPack, modelRef]:[PackUpsale, YTref<Model>] = await Promise.all([
             _role.advanced.createClass("packUpsale"),
             _role.simple.createClass("model")
         ]);
         newPack.title = _content.title;
         modelRef.objectId = _content.modelRef;
-        newPack.model = modelRef as YTref<Model>;
+        newPack.model = modelRef;
         // this doesn't mark weight as updated
         newPack.weight.value = _content.weight;
         newPack.weight.unit = _content.unit;
@@ -80,12 +80,12 @@ exports.REST = {
         // newPack.weight_unit = _content.unit;
 
         await Promise.all((_content.similar || []).map(async (packId) => {
-            const [newRef, packRef]:[PackRef, PackUpsale] = await Promise.all([
+            const [newRef, packRef]:[PackRef, YTref<PackUpsale>] = await Promise.all([
                 _role.advanced.createClass("packRef"),
                 _role.advanced.createClass("packUpsale")
             ]);
             packRef.objectId = packId;
-            newRef.pack = packRef as YTref<Pack>;
+            newRef.pack = packRef;
             return newPack.similar.push(newRef);
         }));
 
