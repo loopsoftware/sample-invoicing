@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My app</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Example usage of Yupana framework">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="/API/v1/library.js?requireMode=scoped"></script>
+    <style type="text/css"></style>
+</head>
+<body id="ext-element-1" class="x-webkit x-chrome x-mac x-desktop x-body x-scroller" style="overflow: auto;">
+<div id="root"></div>
+<script type="application/javascript">
+    let role, session;
+    (async () => {
+        const sessionId = ("; " + document.cookie).split("; sessionId=")[1];
+        try {
+            const {session: _session, yapplication, role: _role} = await ypnInit(
+                sessionId,
+                window.location,
+                { name: "user", version: "1.2.3" },
+                true,
+                true,
+                true
+            );
+            session = _session;
+            role = _role;
+
+            const user = await session.getUser();
+            debugger;
+            document.body.append(`Hi ${user.firstname} ${user.name}`);
+
+            const cnx = await session.dbserver.connect("simple", 'simple', null);
+            const yQuery = require('./YQuery.js').YQuery;
+
+            const query = yQuery.From('simple.model')
+                        .Where(`obj.title == "asd"`)
+                        .Select()
+                        .Execute();
+            const result = await cnx.find(query);
+            const firstMatch = await role.simple.createClass("model");
+            firstMatch.setData(await result.iterator.next(null));
+
+            document.body.append(`Found ${firstMatch.cGetContent()}`);
+        } catch (e) {
+            debugger;
+            throw e;
+        }
+    })().then(()=>console.log("I'm done")).catch((e) => console.error("No dice", e));
+</script>
+<img src="assets/0.png" />
+</body>
+</html>
