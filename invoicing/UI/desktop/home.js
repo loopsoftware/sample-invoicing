@@ -19,7 +19,7 @@ ypn.onready((_callback) => {
             YContext.emit("connectionsready");
         })
         .catch(err => {
-            console.error('failled to get the connection', err);
+            console.error('failed to get the connection', err);
         })
     });
     _callback(null);
