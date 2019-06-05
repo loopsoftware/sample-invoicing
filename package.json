@@ -13,6 +13,16 @@
             "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}",
             "path": "./packages/core",
             "version": "0.20.4"
+        },
+        {
+            "name": "simple",
+            "id": "a6a687ff-f4c1-4da4-8994-15775a69e084",
+            "version": "1.0.0"
+        },
+        {
+            "name": "advanced",
+            "id": "82412623-16a2-4901-949d-e17ff8210c16",
+            "version": "1.0.0"
         }
     ],
     "namespaces": {
@@ -20,6 +30,17 @@
             {
                 "name": "invoicing",
                 "id": "c0a15815-9eb6-4376-a4c7-4cf60f7a8536"
+            }
+        ],
+        "simple": [
+            {
+                "name": "simple",
+                "id": "a6a687ff-f4c1-4da4-8994-15775a69e084"
+            },
+            {
+                "name": "advanced",
+                "id": "82412623-16a2-4901-949d-e17ff8210c16",
+                "version": "1.0.0"
             }
         ]
     },
@@ -99,6 +120,14 @@
                 {
                     "name": "setting",
                     "id": "{FD9B7AF2-5C2E-4074-98B2-1DCB05FF7896}"
+                },
+                {
+                    "name": "simple",
+                    "id": "a6a687ff-f4c1-4da4-8994-15775a69e084"
+                },
+                {
+                    "name": "advanced",
+                    "id": "82412623-16a2-4901-949d-e17ff8210c16"
                 }
             ]
         },
@@ -158,6 +187,26 @@
                                         "id": "{16792738-b191-41d0-80da-49b3418200e7}",
                                         "label": "Product By Price",
                                         "rights": [
+                                            "export"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "822a1263-adbf-46ae-be67-892a0b3d6f59",
+                                "label": "Simple",
+                                "rights": [
+                                    "write",
+                                    "print",
+                                    "export"
+                                ],
+                                "subrights": [
+                                    {
+                                        "id": "c10691b0-1183-4e65-9ae8-9a1bb4a7f61d",
+                                        "label": "Simple List",
+                                        "rights": [
+                                            "write",
+                                            "print",
                                             "export"
                                         ]
                                     }
@@ -251,9 +300,36 @@
                                 ]
                             }
                         ]
+                    },
+                    {
+                        "id": "822a1263-adbf-46ae-be67-892a0b3d6f59",
+                        "label": "Simple",
+                        "rights": [
+                            "write",
+                            "print",
+                            "export"
+                        ],
+                        "subrights": [
+                            {
+                                "id": "c10691b0-1183-4e65-9ae8-9a1bb4a7f61d",
+                                "label": "Simple List",
+                                "rights": [
+                                    "write",
+                                    "print",
+                                    "export"
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
         ]
+    },
+    "dependencies": {
+        "@yupana/framework-types": "^0.1.2",
+        "@yupana/class-generator": "^0.1.3"
+    },
+    "devDependencies": {
+        "typescript": "^3.4.5"
     }
 }

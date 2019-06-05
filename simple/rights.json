@@ -1,0 +1,24 @@
+{
+  "rights": [
+    {
+      "id": "822a1263-adbf-46ae-be67-892a0b3d6f59",
+      "label": "Simple",
+      "rights": [
+        "write",
+        "print",
+        "export"
+      ],
+      "subrights": [
+        {
+          "id": "c10691b0-1183-4e65-9ae8-9a1bb4a7f61d",
+          "label": "Simple List",
+          "rights": [
+            "write",
+            "print",
+            "export"
+          ]
+        }
+      ]
+    }
+  ]
+}

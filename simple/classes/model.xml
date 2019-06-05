@@ -1,0 +1,8 @@
+<yo:object xmlns:yo="http://framework.yupana.com/ood" module="simple" lang="en">
+    <class name="model" userName="Model" id="9c2728d5-2c60-4bc1-bce4-748317c86ef6" shortDescription="title"
+           longDescription="title description">
+        <slot name="title" type="YTstring" userName="Title" mandatory="true"/>
+        <slot name="description" type="YTstring" userName="Description"/>
+        <slot name="content" type="YTstring" userName="Content" computed="true" getter="cGetContent"/>
+    </class>
+</yo:object>

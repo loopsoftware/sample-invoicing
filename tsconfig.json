@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "outDir": "js-compiled",
+    "strict": false,
+    "esModuleInterop": true
+  },
+  "include": [
+    "./simple/**/*",
+    "./advanced/**/*",
+    "./node_modules/@yupana/**/*",
+    "./node_modules/sample-invoicing/**/*"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "rights": [
+    {
+      "id": "57b44f7b-f7a5-4ac9-8dd8-74d053a70837",
+      "label": "Advanced",
+      "rights": [
+        "write",
+        "print",
+        "export"
+      ],
+      "subrights": [
+        {
+          "id": "253ba76e-dbca-4e64-9750-73ff00e108c0",
+          "label": "Packs",
+          "rights": [
+            "write",
+            "print",
+            "export"
+          ]
+        }
+      ]
+    }
+  ]
+}

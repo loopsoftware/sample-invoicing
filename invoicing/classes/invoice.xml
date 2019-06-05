@@ -1,10 +1,11 @@
-<yo:object xmlns:yo="http://framework.yuapan.com/ood" module="invoicing" lang="en" >
-	<class name="invoice" userName="Invoice" id="7f237ec8-27a3-4fc1-897f-508b1e98921c" shortDescription="number" longDescription="number thirdParty">
-		<slot name="number" type="YTstring" userName="Invoice Number" mandatory="true"/>
+<yo:object xmlns:yo="http://framework.yupana.com/ood" module="invoicing" lang="en">
+    <class name="invoice" userName="Invoice" id="7f237ec8-27a3-4fc1-897f-508b1e98921c" shortDescription="number"
+           longDescription="number thirdParty">
+        <slot name="number" type="YTstring" userName="Invoice Number" mandatory="true"/>
         <slot name="thirdParty" type="YTref" class="invoicing.thirdParty" userName="Third Party"/>
-        <slot name="description" type="YTstring" userName="Description" />
-        <slot name="date" type="YTdate" userName="Date" />
+        <slot name="description" type="YTstring" userName="Description"/>
+        <slot name="date" type="YTdate" userName="Date"/>
         <slot name="lines" type="YTarray" class="invoicing.line" userName="Lines"/>
-		<slot name="total" type="YTmoney" userName="Total" />
-	</class>
+        <slot name="total" type="YTmoney" userName="Total"/>
+    </class>
 </yo:object>

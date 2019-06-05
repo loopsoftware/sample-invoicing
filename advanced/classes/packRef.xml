@@ -1,0 +1,6 @@
+<yo:object xmlns:yo="http://framework.yupana.com/ood" module="advanced" lang="en">
+    <class name="packRef" userName="PackReference" id="6bcd2d61-babb-4cee-b32a-6269b7dee680" shortDescription="pack"
+           longDescription="pack">
+        <slot name="pack" type="YTref" class="advanced.pack" userName="Pack"/>
+    </class>
+</yo:object>
