@@ -12,8 +12,7 @@
     "private": true,
     "dependencies": {
         "@yupana/class-generator": "^0.1.3",
-        "@yupana/framework-service-types": "file:../../yupana-service-lib",
-        "@yupana/framework-types": "^0.1.2"
+        "@yupana/framework-types": "^0.1.4"
     },
     "devDependencies": {
         "@types/node": "^11.11.3",
