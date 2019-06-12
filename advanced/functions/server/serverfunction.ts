@@ -87,14 +87,14 @@ exports.REST = {
             }
         }, false);
 
-        const cnx = await _session.dbserver.connect("simple", 'simple', null);
+        const cnx = await _session.dbserver.connect("simple", "simple", null);
         await cnx.commit([newPack]);
 
         // Scales.weight is not working
         // return {data: {success: true, mass: Scales.weight(newPack.weight)}};
 
         // this compiles but no hinting/autocompletion
-        const scales = (await _role.advanced.requireEx('commonfunction.js')).Scales;
+        const scales = (await _role.advanced.requireEx("commonfunction.js")).Scales;
         return {data: {success: true, mass: scales.weight(newPack.weight as YPackWeight)}};
   }
 };
