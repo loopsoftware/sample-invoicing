@@ -1,36 +1,44 @@
-import yupana from "@yupana/core-lib-poc";
-// import { notify } from "./utils";
+import {YContext} from "@yupana/framework-types/lib/YContext";
+import {YRole} from "@yupana/framework-types/lib/YRoles";
+import {YSession} from "@yupana/framework-types/lib/YSessions";
+import {YLog, YQuery} from "@yupana/framework-types";
+import {Model} from "../../simple/ts-classes/model";
+import {Service} from "@yupana/framework-types/lib/Server";
 
-// const yupana = require("@yupana/core-lib-poc");1
+async function worker(serv: YContext<Service>, role: YRole, session: YSession) {
+    console.log(">>> worker >>> about to fetch data ...");
 
-function notify(message: string, ...objs: any[]) {
-    const baseMsg = "FROM TS-SERVICE: ";
-
-    console.log(`${baseMsg}${message}`);
-
-    objs.forEach(obj => {
-        console.log(JSON.stringify(obj, null, 2));
-    });
+    const cnx = await session.dbserver.connect("simple", "simple");
+    const query = YQuery.From("simple.model")
+        .Select()
+        .Execute();
+    const result = await cnx.find(query);
+    const m: Model = await role.simple.createClass("model");
+    let data = await result.iterator.next();
+    while (Boolean(data)) {
+        m.setData(data);
+        YLog.info(m.cGetContent());
+        data = await result.iterator.next();
+    }
 }
 
-async function main(serv: any, role: any, session: any) {
-    notify("I'm working");
-    const yuser = yupana.YUser;
+async function main(serv: YContext<Service>, role: YRole, session: YSession) {
+    if (!serv.service) {
+        throw new Error("No service defined");
+    }
 
-    const newUser = await yuser.create({
-        userLogin: "rick@sanchez.morty",
-        password: "1234",
-        issuedBy: "me",
-        session,
-    });
+    console.log(">>> oninitService >>> about to register task...");
+    serv.service.registerTask(
+        "TestEmitEvent",
+        3600,
+        async (server: YContext<Service>, role: YRole, session: YSession) => {
+            console.log(">>> oninitService > task callback >>> about to call worker...");
+            await worker(serv, role, session);
+        },
+        120
+    );
 
-    notify("created a user", newUser);
-
-    const bob = await newUser.read({}, "ab12d6e4-7ce8-48a9-a570-5c636b4c073b", undefined);
-
-    notify("got bob", bob);
-
-    process.exit(0);
+    console.log(">>> oninitService >>> done registering task.");
 }
 
 exports.oninitService = main;

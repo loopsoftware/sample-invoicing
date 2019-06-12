@@ -65,13 +65,9 @@ exports.REST = {
     ): ServerFunctionResponse<{
         success: boolean, mass: number
     }> => {
-        const [newPack, modelRef]:[PackUpsale, Model] = await Promise.all([
-            _role.advanced.createClass("packUpsale"),
-            _role.simple.createClass("model")
-        ]);
+        const newPack:PackUpsale = await _role.advanced.createClass("packUpsale");
         newPack.title = _content.title;
-        modelRef.objectId = _content.modelRef;
-        newPack.model = modelRef as YTref<Model>;
+        newPack.model = {objectId: _content.modelRef} as YTref<Model>;
         // this doesn't mark weight as updated
         newPack.weight.value = _content.weight;
         newPack.weight.unit = _content.unit;
@@ -80,12 +76,8 @@ exports.REST = {
         // newPack.weight_unit = _content.unit;
 
         await Promise.all((_content.similar || []).map(async (packId) => {
-            const [newRef, packRef]:[PackRef, PackUpsale] = await Promise.all([
-                _role.advanced.createClass("packRef"),
-                _role.advanced.createClass("packUpsale")
-            ]);
-            packRef.objectId = packId;
-            newRef.pack = packRef as YTref<Pack>;
+            const newRef:PackRef = await _role.advanced.createClass("packRef");
+            newRef.pack = {objectId: packId} as YTref<PackUpsale>;
             return newPack.similar.push(newRef);
         }));
 
@@ -95,14 +87,14 @@ exports.REST = {
             }
         }, false);
 
-        const cnx = await _session.dbserver.connect("simple", 'simple', null);
+        const cnx = await _session.dbserver.connect("simple", "simple", null);
         await cnx.commit([newPack]);
 
         // Scales.weight is not working
         // return {data: {success: true, mass: Scales.weight(newPack.weight)}};
 
         // this compiles but no hinting/autocompletion
-        const scales = (await _role.advanced.requireEx('commonfunction.js')).Scales;
+        const scales = (await _role.advanced.requireEx("commonfunction.js")).Scales;
         return {data: {success: true, mass: scales.weight(newPack.weight as YPackWeight)}};
   }
 };

@@ -70,8 +70,8 @@ exports.REST = {
         success: boolean,
         content: string
     }> => {
-        const cnx = await _session.dbserver.connect("simple", 'simple', null);
-        const query = YQuery.From('simple.model')
+        const cnx = await _session.dbserver.connect("simple", "simple", null);
+        const query = YQuery.From("simple.model")
                     .Where(`obj.title == "${_args.title}"`)
                     .Select()
                     .Execute();
@@ -128,7 +128,7 @@ exports.REST = {
             }
         }, false);
 
-        const cnx = await _session.dbserver.connect("simple", 'simple', null);
+        const cnx = await _session.dbserver.connect("simple", "simple", null);
         await cnx.commit([newModel]);
         return {data: {success: true}};
     }

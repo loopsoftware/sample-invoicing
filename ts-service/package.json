@@ -11,12 +11,13 @@
     "author": "simonpiscitelli@gmail.com",
     "private": true,
     "dependencies": {
-        "@yupana/core-lib-poc": "^0.1.0",
-        "typescript": "^3.3.3333",
-        "tslib": "^1.9.3"
+        "@yupana/class-generator": "^0.1.3",
+        "@yupana/framework-types": "^0.1.4"
     },
     "devDependencies": {
-        "@types/node": "^11.11.3"
+        "@types/node": "^11.11.3",
+        "typescript": "^3.3.3333",
+        "tslib": "^1.9.3"
     },
     "files": [
         "index.js"
